@@ -3,114 +3,237 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Wade Byrd</title>
+  <title>Wade Byrd | Agent Owner</title>
   <style>
+    :root {
+      --bg: #0b1120;
+      --card: rgba(15, 23, 42, 0.82);
+      --border: rgba(255, 255, 255, 0.10);
+      --text: #f8fafc;
+      --muted: #cbd5e1;
+      --soft: #94a3b8;
+      --accent: #d4af37;
+      --accent-dark: #b8921f;
+      --button-dark: #1e293b;
+      --button-dark-hover: #2b3a52;
+      --shadow: 0 20px 60px rgba(0, 0, 0, 0.45);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
-      background: #0f172a;
-      color: white;
-      display: flex;
-      justify-content: center;
-      align-items: center;
       min-height: 100vh;
-      padding: 20px;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top, rgba(212, 175, 55, 0.14), transparent 28%),
+        linear-gradient(180deg, #0b1120 0%, #111827 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
     }
 
     .card {
-      background: #1e293b;
-      max-width: 420px;
       width: 100%;
-      border-radius: 20px;
-      padding: 32px 24px;
-      box-shadow: 0 20px 40px rgba(0,0,0,0.35);
-      text-align: center;
+      max-width: 460px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 28px;
+      padding: 36px 28px 28px;
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 28px;
+      right: 28px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.7), transparent);
+    }
+
+    .badge {
+      display: inline-block;
+      font-size: 0.72rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent);
+      border: 1px solid rgba(212, 175, 55, 0.35);
+      background: rgba(212, 175, 55, 0.08);
+      padding: 8px 12px;
+      border-radius: 999px;
+      margin-bottom: 18px;
     }
 
     h1 {
-      margin: 0 0 8px;
+      margin: 0;
       font-size: 2rem;
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+      font-weight: 700;
     }
 
-    .subtitle {
-      color: #cbd5e1;
-      font-size: 1rem;
-      margin-bottom: 8px;
+    .title {
+      margin-top: 10px;
+      font-size: 1.02rem;
+      color: var(--muted);
     }
 
     .company {
-      color: #93c5fd;
-      font-weight: bold;
-      margin-bottom: 28px;
+      margin-top: 6px;
+      font-size: 1rem;
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    .divider {
+      width: 64px;
+      height: 3px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--accent), rgba(212, 175, 55, 0.2));
+      margin: 24px 0 22px;
+    }
+
+    .actions {
+      display: grid;
+      gap: 12px;
     }
 
     .button {
       display: block;
       width: 100%;
-      box-sizing: border-box;
       text-decoration: none;
-      background: #2563eb;
-      color: white;
-      padding: 14px 18px;
-      border-radius: 12px;
-      font-weight: bold;
-      margin-bottom: 14px;
-      transition: 0.2s ease;
+      text-align: center;
+      padding: 15px 18px;
+      border-radius: 14px;
+      font-weight: 600;
+      font-size: 1rem;
+      transition: transform 0.15s ease, background 0.15s ease, border-color 0.15s ease;
+      border: 1px solid transparent;
     }
 
     .button:hover {
-      background: #1d4ed8;
+      transform: translateY(-1px);
+    }
+
+    .button.primary {
+      background: linear-gradient(180deg, #e0bc4b 0%, var(--accent) 100%);
+      color: #111827;
+      box-shadow: 0 10px 24px rgba(212, 175, 55, 0.22);
+    }
+
+    .button.primary:hover {
+      background: linear-gradient(180deg, #e7c75c 0%, var(--accent-dark) 100%);
     }
 
     .button.secondary {
-      background: #334155;
+      background: rgba(30, 41, 59, 0.88);
+      color: var(--text);
+      border-color: rgba(255, 255, 255, 0.08);
     }
 
     .button.secondary:hover {
-      background: #475569;
+      background: var(--button-dark-hover);
     }
 
-    .info {
+    .contact {
       margin-top: 24px;
-      font-size: 0.95rem;
-      color: #e2e8f0;
-      line-height: 1.8;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      display: grid;
+      gap: 12px;
+    }
+
+    .contact-item {
+      color: var(--muted);
+      font-size: 0.97rem;
+      line-height: 1.5;
+      word-break: break-word;
+    }
+
+    .contact-item strong {
+      display: block;
+      color: var(--soft);
+      font-size: 0.76rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      margin-bottom: 4px;
+      font-weight: 600;
     }
 
     a.inline {
-      color: #93c5fd;
+      color: var(--text);
       text-decoration: none;
     }
 
     a.inline:hover {
-      text-decoration: underline;
+      color: var(--accent);
     }
 
     .footer {
-      margin-top: 24px;
-      font-size: 0.8rem;
-      color: #94a3b8;
+      margin-top: 22px;
+      color: var(--soft);
+      font-size: 0.84rem;
+      text-align: center;
+    }
+
+    @media (max-width: 480px) {
+      .card {
+        padding: 30px 20px 22px;
+        border-radius: 24px;
+      }
+
+      h1 {
+        font-size: 1.8rem;
+      }
     }
   </style>
 </head>
 <body>
-  <div class="card">
+  <main class="card">
+    <div class="badge">Professional Contact</div>
+
     <h1>Wade Byrd</h1>
-    <div class="subtitle">Agent Owner</div>
+    <div class="title">Agent Owner</div>
     <div class="company">Byrd's Nest Investments</div>
 
-    <a class="button" href="Wade-Byrd.vcf" download>Save Contact</a>
-    <a class="button secondary" href="mailto:w.byrd@armstrongtransport.com">Email Me</a>
-    <a class="button secondary" href="tel:6027381870">Call Me</a>
+    <div class="divider"></div>
 
-    <div class="info">
-      📧 <a class="inline" href="mailto:w.byrd@armstrongtransport.com">w.byrd@armstrongtransport.com</a><br>
-      📞 <a class="inline" href="tel:6027381870">(602) 738-1870</a>
-    </div>
+    <section class="actions">
+      <a class="button primary" href="Wade-Byrd.vcf" download>Save Contact</a>
+      <a class="button secondary" href="mailto:w.byrd@armstrongtransport.com">Email Me</a>
+      <a class="button secondary" href="tel:6027381870">Call Me</a>
+    </section>
+
+    <section class="contact">
+      <div class="contact-item">
+        <strong>Email</strong>
+        <a class="inline" href="mailto:w.byrd@armstrongtransport.com">w.byrd@armstrongtransport.com</a>
+      </div>
+
+      <div class="contact-item">
+        <strong>Phone</strong>
+        <a class="inline" href="tel:6027381870">(602) 738-1870</a>
+      </div>
+
+      <div class="contact-item">
+        <strong>Company</strong>
+        Byrd's Nest Investments
+      </div>
+    </section>
 
     <div class="footer">
       Tap, save, and let’s connect.
     </div>
-  </div>
+  </main>
 </body>
 </html>
