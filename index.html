@@ -84,25 +84,15 @@
     .hero {
       display: flex;
       align-items: center;
+      justify-content: space-between;
       gap: 22px;
-      margin-bottom: 28px;
-    }
-
-    .profile-image {
-      width: 110px;
-      height: 110px;
-      min-width: 110px;
-      border-radius: 22px;
-      object-fit: cover;
-      border: 1px solid rgba(255, 255, 255, 0.10);
-      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.28);
-      background: rgba(255, 255, 255, 0.05);
-      display: block;
+      margin-bottom: 30px;
     }
 
     .hero-text {
       flex: 1;
       text-align: left;
+      min-width: 0;
     }
 
     h1 {
@@ -133,6 +123,19 @@
       border-radius: 999px;
       background: linear-gradient(90deg, var(--accent), rgba(212, 175, 55, 0.18));
       margin-top: 18px;
+    }
+
+    .profile-image {
+      width: 110px;
+      height: 110px;
+      min-width: 110px;
+      border-radius: 22px;
+      object-fit: cover;
+      object-position: center;
+      border: 1px solid rgba(255, 255, 255, 0.10);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.28);
+      background: rgba(255, 255, 255, 0.05);
+      display: block;
     }
 
     .actions {
@@ -230,10 +233,7 @@
         flex-direction: row;
         align-items: center;
         gap: 16px;
-      }
-
-      .hero-text {
-        width: 100%;
+        margin-bottom: 26px;
       }
 
       .profile-image {
@@ -270,18 +270,19 @@
     </div>
 
     <section class="hero">
-      <img src="ATG.png" alt="Wade Byrd" class="profile-image" />
-
       <div class="hero-text">
         <h1>Wade Byrd</h1>
         <div class="title">Agent Owner</div>
         <div class="company">Byrd's Nest Investments</div>
         <div class="divider"></div>
       </div>
+
+      <img src="ATG.png" alt="Wade Byrd" class="profile-image" />
     </section>
 
     <section class="actions">
       <a class="button primary" href="Wade-Byrd.vcf" download>Save Contact</a>
+      <a class="button secondary" href="https://www.linkedin.com/in/your-linkedin-url/" target="_blank" rel="noopener noreferrer">Connect on LinkedIn</a>
       <a class="button secondary" href="mailto:w.byrd@armstrongtransport.com">Email Me</a>
       <a class="button secondary" href="tel:6027381870">Call Me</a>
     </section>
